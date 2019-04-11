@@ -1,0 +1,55 @@
+<div class="data-table-header">
+  <h4 class="title" [textContent]="dataTable.headerTitle"></h4>
+  <div class="button-panel">
+
+    <div class="input-group">
+            <div class="inner-addon left-addon">
+                    <i class="fa fa-search"></i>      
+                    <input type="text" class="form-control" placeholder="Sonuçları filtrele" [(ngModel)]="dataTable.rowfilter" (ngModelChange)="filterChanged($event)"/>
+                </div>
+            <div class="input-group-append">
+         
+      <button *ngIf="dataTable.showReloadButton" type="button" class="btn btn-outline-secondary btn-sm refresh-button"
+          (click)="dataTable.reloadItems()">
+          <span class="fa fa-refresh"></span>
+      </button>
+            </div>
+            <div class="input-group-append">
+      <button *ngIf="dataTable.showColumnSelector" type="button" class="btn btn-outline-secondary btn-sm column-selector-button" [class.active]="columnSelectorOpen"
+          (click)="columnSelectorOpen = !columnSelectorOpen; $event.stopPropagation()" >
+          <span class="fa fa-list"></span>
+      </button>
+            </div>
+    </div>
+
+
+      <div class="column-selector-wrapper" (click)="$event.stopPropagation()">
+          <div *ngIf="columnSelectorOpen" class="column-selector-box panel panel-default">
+              <div *ngIf="dataTable.expandableRows" class="column-selector-fixed-column checkbox">
+                  <label>
+                      <input type="checkbox" [(ngModel)]="dataTable.expandColumnVisible"/>
+                      <span>{{dataTable.translations.expandColumn}}</span>
+                  </label>
+              </div>
+              <div *ngIf="dataTable.indexColumn" class="column-selector-fixed-column checkbox">
+                  <label>
+                      <input type="checkbox" [(ngModel)]="dataTable.indexColumnVisible"/>
+                      <span>{{dataTable.translations.indexColumn}}</span>
+                  </label>
+              </div>
+              <div *ngIf="dataTable.selectColumn" class="column-selector-fixed-column checkbox">
+                  <label>
+                      <input type="checkbox" [(ngModel)]="dataTable.selectColumnVisible"/>
+                      <span>{{dataTable.translations.selectColumn}}</span>
+                  </label>
+              </div>
+              <div *ngFor="let column of dataTable.columns" class="column-selector-column checkbox">
+                  <label>
+                      <input type="checkbox" [(ngModel)]="column.visible"/>
+                      <span [textContent]="column.header"></span>
+                  </label>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
