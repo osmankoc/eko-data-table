@@ -1,0 +1,12 @@
+{
+  "name": "eko-data-table",
+  "version": "0.0.8",
+  "description": "Eko Data Table (Angular 7)",
+  "license": "MIT",
+  "author": "Osman Koç",
+  "keywords": ["angular", "angular 7", "data table", "datatable", "filtering", "sorting", "pagination"],
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  }
+}
