@@ -6,6 +6,11 @@ This Library is developed based on ggmod angular 2 datatable (https://github.com
 
 `npm install eko-data-table --save`
 
+### Demo
+
+https://angular-eko-data-table-demo.stackblitz.io/
+
+
 #### Licensing
 MIT License
 
